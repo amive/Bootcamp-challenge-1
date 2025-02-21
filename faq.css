@@ -34,7 +34,8 @@ body{
     padding: 1rem;
     background-color: white;
     border-radius: 10px;
-    width: 410px;
+    width: 90%;
+    max-width: 410px;
     position: absolute;
     left: 47%;
     right: 48%;
@@ -123,5 +124,30 @@ body{
         opacity: 0;
         transform: translateY(-10px) scale(0.98); 
         visibility: hidden;
+    }
+}
+@media (max-width: 768px){
+    .other-half {
+        width: 90%; 
+        left: 50%;
+        top: 40%; 
+        transform: translate(-50%, -40%);
+    }
+
+    .attribution {
+        margin-top: 400px; 
+        margin-left: 30%; 
+    }
+
+    .head {
+        font-size: 1.5rem; 
+    }
+
+    .question {
+        font-size: 14px; 
+    }
+
+    .answer {
+        font-size: 13px; 
     }
 }
