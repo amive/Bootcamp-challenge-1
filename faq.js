@@ -1,18 +1,33 @@
 document.querySelectorAll(".question").forEach(question => {
     question.addEventListener("click", function() {
         let img = this.querySelector("img");
-        let answer = this.nextElementSibling; 
+        let answer = this.nextElementSibling;
 
-        if (answer.style.display === "block") {
-            answer.style.display = "none";
-            img.src = "icon-plus.svg"; 
+        if (answer.classList.contains("active")) {
+            // Start closing animation
+            answer.classList.remove("active");
+            answer.style.maxHeight = answer.scrollHeight + "px"; // Set to current height
+            setTimeout(() => {
+                answer.style.maxHeight = "0";
+            }, 10); // Small delay to trigger the transition
+
+            img.src = "icon-plus.svg";
         } else {
-            
-            document.querySelectorAll(".answer").forEach(ans => ans.style.display = "none");
+            // Close any open answers first
+            document.querySelectorAll(".answer.active").forEach(ans => {
+                ans.classList.remove("active");
+                ans.style.maxHeight = ans.scrollHeight + "px"; // Set to current height
+                setTimeout(() => {
+                    ans.style.maxHeight = "0";
+                }, 10); // Small delay to trigger the transition
+            });
+
             document.querySelectorAll(".question img").forEach(icon => icon.src = "icon-plus.svg");
 
-            answer.style.display = "block";
-            img.src = "icon-minus.svg"; 
+            // Open selected answer smoothly
+            answer.classList.add("active");
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            img.src = "icon-minus.svg";
         }
     });
 });
