@@ -8,16 +8,11 @@
     src: url('WorkSans-VariableFont_wght.ttf');
 }
 body{
-    
     background-color: hsl(276, 79.20%, 90.60%);
-    
     font-size: 16px;
     font-family:"Work Sans", serif;
     height: 100vh;
     font-style: normal;
-
-
-
     height: 100%;
     margin: 0;
     padding: 0;
@@ -50,15 +45,21 @@ body{
     
 .attribution { 
     font-size: 11px;
-    display: flex; 
+    display: flex;
     align-items: center;
-    margin-top: 370px;
-    margin-left: 46%;
+    justify-content: center;
+    position: fixed; 
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
   }
 .attribution a { color: hsl(228, 45%, 44%); }
-      .attribution img {
-        display: flex;
-        width: 15px;}
+.attribution img {
+    display: flex;
+    width: 15px;}
 .head{
     display: flex;
     gap: 13px;
@@ -127,16 +128,23 @@ body{
     }
 }
 @media (max-width: 768px){
+    .half-page-bg {
+        height: 35vh;
+        background-image:url('background-pattern-mobile.svg');
+        background-size: cover;
+        background-position: center;
+    }
     .other-half {
-        width: 90%; 
+        width: 80%; 
         left: 50%;
         top: 40%; 
         transform: translate(-50%, -40%);
     }
 
     .attribution {
-        margin-top: 400px; 
-        margin-left: 30%; 
+        font-size: 10px;
+        bottom: 5px;
+        padding: 5px 0;
     }
 
     .head {
